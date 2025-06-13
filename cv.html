@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juan Pablo Casado - Marketing Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: white;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 40px 50px;
+        }
+
+        /* Header Section */
+        .header {
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .title {
+            font-size: 1.5rem;
+            color: #3498db;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Key Metrics Bar */
+        .metrics-bar {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #3498db;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Profile Section */
+        .profile {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: #3498db;
+            border-radius: 2px;
+        }
+
+        .profile-text {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            margin-bottom: 30px;
+            padding-left: 20px;
+            border-left: 2px solid #e0e0e0;
+        }
+
+        .job-header {
+            margin-bottom: 10px;
+        }
+
+        .job-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .company-info {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .date-range {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .client-projects {
+            margin-top: 15px;
+        }
+
+        .client-project {
+            margin-bottom: 20px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .client-name {
+            font-weight: 600;
+            color: #3498db;
+            margin-bottom: 8px;
+        }
+
+        .achievements {
+            list-style: none;
+            padding: 0;
+        }
+
+        .achievements li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .achievements li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .skill-category h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid #ddd;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .project-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .project-name {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .project-tech {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .project-link {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        /* Education & Languages */
+        .education-item {
+            margin-bottom: 20px;
+        }
+
+        .degree {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .university {
+            color: #666;
+        }
+
+        .languages {
+            display: flex;
+            gap: 30px;
+        }
+
+        .language {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                padding: 20px;
+            }
+            .project-link {
+                color: #333;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            .name {
+                font-size: 2rem;
+            }
+            .title {
+                font-size: 1.2rem;
+            }
+            .metrics-bar {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="name">Juan Pablo Casado</h1>
+            <h2 class="title">Marketing Engineer</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    📍 Bologna, Italy (EU Citizen)
+                </div>
+                <div class="contact-item">
+                    📧 jpcasadob@gmail.com
+                </div>
+                <div class="contact-item">
+                    📱 +39 344 404 1713
+                </div>
+                <div class="contact-item">
+                    💼 linkedin.com/in/jpcasado
+                </div>
+                <div class="contact-item">
+                    🌐 jpcasado88.github.io
+                </div>
+            </div>
+        </header>
+
+        <!-- Key Metrics -->
+        <div class="metrics-bar">
+            <div class="metric">
+                <div class="metric-value">€3M+</div>
+                <div class="metric-label">Annual GMV Automated</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">10,000+</div>
+                <div class="metric-label">Orders/Month Processed</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">50%</div>
+                <div class="metric-label">Cost Reduction</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">35%</div>
+                <div class="metric-label">Attribution Improvement</div>
+            </div>
+        </div>
+
+        <!-- Profile -->
+        <section class="profile">
+            <h3 class="section-title">Profile</h3>
+            <p class="profile-text">
+                Marketing Engineer specializing in building revenue-generating automation systems. 
+                Proven track record of creating Python solutions that scale businesses from €1M to €3M+ GMV. 
+                Expert in bridging marketing strategy with technical implementation through API integrations, 
+                data analytics, and custom automation tools. EU citizen fluent in Spanish, English, and Italian.
+            </p>
+        </section>
+
+        <!-- Experience -->
+        <section>
+            <h3 class="section-title">Experience</h3>
+            
+            <div class="experience-item">
+                <div class="job-header">
+                    <div class="job-title">Marketing Engineer / Automation Specialist</div>
+                    <div class="company-info">Freelance · Remote · European Clients</div>
+                    <div class="date-range">2021 - Present</div>
+                </div>
+                
+                <div class="client-projects">
+                    <div class="client-project">
+                        <div class="client-name">SCOTSPEED (UK) – €3M GMV E-commerce Automation</div>
+                        <ul class="achievements">
+                            <li>Architected Python system managing €3M+ annual GMV across eBay, Amazon, Shopify</li>
+                            <li>Processes 10,000+ orders/month with automated fulfillment workflow</li>
+                            <li>Reduced operational overhead by 50% (from 1 FTE to 0.5 FTE)</li>
+                            <li>6+ months in production, scaled business from €1M to €3M</li>
+                        </ul>
+                    </div>
+
+                    <div class="client-project">
+                        <div class="client-name">MYCS (DE) – E-commerce Analytics & Attribution</div>
+                        <ul class="achievements">
+                            <li>Implemented Meta CAPI solving iOS14+ attribution challenges</li>
+                            <li>Built custom GTM tracking for complete customer journey visibility</li>
+                            <li>Created automated reporting dashboards for 5-country operations</li>
+                            <li>Improved marketing attribution accuracy by 35%</li>
+                        </ul>
+                    </div>
+
+                    <div class="client-project">
+                        <div class="client-name">DENTALY.ORG (FR) – Multi-Market Analytics Platform</div>
+                        <ul class="achievements">
+                            <li>Designed multilingual Looker Studio dashboards for 5 markets</li>
+                            <li>Implemented advanced GTM event tracking with custom JavaScript</li>
+                            <li>Integrated OneSignal push notifications and Crazy Egg A/B testing</li>
+                        </ul>
+                    </div>
+
+                    <div class="client-project">
+                        <div class="client-name">Additional Projects</div>
+                        <ul class="achievements">
+                            <li>COSMIC FUSION (UK): OpenAI chatbot handling 500+ queries/month</li>
+                            <li>BOYD DIGITAL (UK): SEO automation tools for 5 websites</li>
+                            <li>SUPERNOVA CAPITAL (ISR): SQL database optimization and analytics</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <div class="job-title">Content & SEO/SEM Manager</div>
+                    <div class="company-info">I2B Technologies · Santiago, Chile</div>
+                    <div class="date-range">2017 - 2021</div>
+                </div>
+                <ul class="achievements">
+                    <li>Led 8-person cross-functional team (developers, designers, content creators)</li>
+                    <li>Grew organic traffic from 0 to 50,000+ monthly sessions in Year 1</li>
+                    <li>Managed €500k+ annual budget across Google Ads and Meta platforms</li>
+                    <li>Migrated company to modern MarTech stack (GA4, SEMrush, ActiveCampaign)</li>
+                    <li>Achieved top 3 national rankings for key industry terms</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section>
+            <h3 class="section-title">Technical Skills</h3>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>🚀 Marketing Engineering</h4>
+                    <div class="skill-items">
+                        <span class="skill-tag">Python Automation</span>
+                        <span class="skill-tag">API Integration</span>
+                        <span class="skill-tag">Data Pipelines</span>
+                        <span class="skill-tag">Revenue Systems</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>📊 Analytics & Data</h4>
+                    <div class="skill-items">
+                        <span class="skill-tag">GA4/GTM</span>
+                        <span class="skill-tag">Looker Studio</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">Meta CAPI</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>🛠️ Development</h4>
+                    <div class="skill-items">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">APIs</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>📈 Marketing Tools</h4>
+                    <div class="skill-items">
+                        <span class="skill-tag">SEO/SEM</span>
+                        <span class="skill-tag">ActiveCampaign</span>
+                        <span class="skill-tag">Meta Business</span>
+                        <span class="skill-tag">Zapier/Make</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section>
+            <h3 class="section-title">Featured Projects</h3>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-name">Gaming Marketing Analytics</div>
+                    <div class="project-tech">Python, Dash, Plotly</div>
+                    <a href="https://web-production-cda1.up.railway.app/" class="project-link">View Demo →</a>
+                </div>
+                <div class="project-card">
+                    <div class="project-name">eBay Order Processor</div>
+                    <div class="project-tech">Flask, eBay API, OAuth2</div>
+                    <a href="https://web-production-67ad0.up.railway.app/" class="project-link">View Demo →</a>
+                </div>
+                <div class="project-card">
+                    <div class="project-name">Production Dashboard</div>
+                    <div class="project-tech">React, Recharts, Vite</div>
+                    <a href="https://proddashboard-production-c745.up.railway.app/" class="project-link">View Demo →</a>
+                </div>
+                <div class="project-card">
+                    <div class="project-name">E-commerce Automation</div>
+                    <div class="project-tech">TypeScript, Shopify API</div>
+                    <a href="https://shopify-demo-production-213f.up.railway.app/" class="project-link">View Demo →</a>
+                </div>
+            </div>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">
+                Full portfolio: <a href="https://jpcasado88.github.io" style="color: #3498db;">jpcasado88.github.io</a>
+            </p>
+        </section>
+
+        <!-- Education -->
+        <section>
+            <h3 class="section-title">Education</h3>
+            <div class="education-item">
+                <div class="degree">Master's Degree in Digital Humanities</div>
+                <div class="university">University of Bologna, Italy · 2021-2023</div>
+                <p style="color: #666; margin-top: 5px;">
+                    Specialization: Python, APIs, NLP, Data Modeling, Automation Projects
+                </p>
+            </div>
+            <div class="education-item">
+                <div class="degree">BA Journalism / Hispanic Literature</div>
+                <div class="university">Pontificia Universidad Católica de Chile · 2009-2015</div>
+                <p style="color: #666; margin-top: 5px;">
+                    Specialization: Data Storytelling, Research, Audience Analysis
+                </p>
+            </div>
+        </section>
+
+        <!-- Languages -->
+        <section>
+            <h3 class="section-title">Languages</h3>
+            <div class="languages">
+                <div class="language">
+                    <span>🇪🇸 Spanish</span>
+                    <span style="color: #666;">(Native)</span>
+                </div>
+                <div class="language">
+                    <span>🇬🇧 English</span>
+                    <span style="color: #666;">(Professional)</span>
+                </div>
+                <div class="language">
+                    <span>🇮🇹 Italian</span>
+                    <span style="color: #666;">(Professional)</span>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
