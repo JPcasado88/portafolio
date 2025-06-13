@@ -205,6 +205,10 @@
             padding: 2rem;
             background: var(--gradient-1);
             color: white;
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .project-card:nth-child(2) .project-header { background: var(--gradient-2); }
@@ -225,6 +229,7 @@
         .project-header h3 {
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
+            line-height: 1.3;
         }
 
         .project-body {
@@ -396,6 +401,8 @@
             .projects-grid { grid-template-columns: 1fr; }
             .about-grid { grid-template-columns: 1fr; }
             .contact-links { flex-direction: column; }
+            .project-header { min-height: 120px; }
+            .project-header h3 { font-size: 1.3rem; }
         }
     </style>
 </head>
