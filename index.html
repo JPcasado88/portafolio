@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juan Pablo Casado- Marketing Engineer & Growth Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #3498db;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+            --accent: #e74c3c;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+            background: #f8f9fa;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 1;
+            padding: 2rem;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: slideInDown 1s ease-out;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: slideInUp 1s ease-out 0.3s both;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            opacity: 0.8;
+            animation: fadeIn 1s ease-out 0.6s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeIn 1s ease-out 0.9s both;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #764ba2;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Skills Section */
+        .skills-marquee {
+            background: white;
+            padding: 3rem 0;
+            overflow: hidden;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+        }
+
+        .skills-track {
+            display: flex;
+            animation: scroll 30s linear infinite;
+        }
+
+        .skills-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .skill-badge {
+            padding: 0.5rem 1.5rem;
+            margin: 0 1rem;
+            background: var(--light);
+            border-radius: 30px;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+
+        .skill-badge:hover {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* Projects Grid */
+        .projects {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .project-header {
+            padding: 2rem;
+            background: var(--gradient-1);
+            color: white;
+        }
+
+        .project-card:nth-child(2) .project-header { background: var(--gradient-2); }
+        .project-card:nth-child(3) .project-header { background: var(--gradient-3); }
+        .project-card:nth-child(4) .project-header { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        .project-card:nth-child(5) .project-header { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+        .project-card:nth-child(6) .project-header { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); }
+
+        .project-type {
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-body {
+            padding: 2rem;
+        }
+
+        .project-description {
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech {
+            padding: 0.3rem 0.8rem;
+            background: var(--light);
+            border-radius: 15px;
+            font-size: 0.9rem;
+            color: var(--dark);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-links a {
+            flex: 1;
+            text-align: center;
+            padding: 0.8rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .demo-link {
+            background: var(--primary);
+            color: white;
+        }
+
+        .github-link {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .project-links a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* About Section */
+        .about {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5rem 2rem;
+        }
+
+        .about-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .about-item {
+            padding: 2rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .about-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 2rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--gradient-1);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Animations */
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero .subtitle { font-size: 1.2rem; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .about-grid { grid-template-columns: 1fr; }
+            .contact-links { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Pablo</h1>
+            <p class="subtitle">Marketing Engineer</p>
+            <p class="description">
+                Building automated growth systems that scale. €3M+ GMV automated, 
+                10,000+ orders/month processed. I turn marketing challenges into technical solutions.
+            </p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Marquee -->
+    <div class="skills-marquee">
+        <div class="skills-track">
+            <!-- Duplicated for seamless loop -->
+            <span class="skill-badge">Marketing Automation</span>
+            <span class="skill-badge">Python</span>
+            <span class="skill-badge">Revenue Operations</span>
+            <span class="skill-badge">API Integration</span>
+            <span class="skill-badge">GA4/GTM</span>
+            <span class="skill-badge">€3M+ GMV Automated</span>
+            <span class="skill-badge">eBay/Shopify APIs</span>
+            <span class="skill-badge">Growth Systems</span>
+            <span class="skill-badge">Meta CAPI</span>
+            <span class="skill-badge">Data Pipelines</span>
+            <span class="skill-badge">Business Intelligence</span>
+            <span class="skill-badge">Process Automation</span>
+            <!-- Duplicate set -->
+            <span class="skill-badge">Marketing Automation</span>
+            <span class="skill-badge">Python</span>
+            <span class="skill-badge">Revenue Operations</span>
+            <span class="skill-badge">API Integration</span>
+            <span class="skill-badge">GA4/GTM</span>
+            <span class="skill-badge">€3M+ GMV Automated</span>
+            <span class="skill-badge">eBay/Shopify APIs</span>
+            <span class="skill-badge">Growth Systems</span>
+            <span class="skill-badge">Meta CAPI</span>
+            <span class="skill-badge">Data Pipelines</span>
+            <span class="skill-badge">Business Intelligence</span>
+            <span class="skill-badge">Process Automation</span>
+        </div>
+    </div>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="section-header">
+            <h2>Featured Projects</h2>
+            <p>From marketing intelligence to process automation</p>
+        </div>
+
+        <div class="projects-grid">
+            <!-- Gaming Marketing Analytics Dashboard -->
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-type">Marketing Intelligence</span>
+                    <h3>Gaming Marketing Analytics</h3>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">
+                        Comprehensive marketing intelligence platform featuring customer lifecycle analysis, 
+                        engagement scoring (0-100), and ROI-focused insights for 850K+ games.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech">Python</span>
+                        <span class="tech">Dash</span>
+                        <span class="tech">Pandas</span>
+                        <span class="tech">Plotly</span>
+                        <span class="tech">Marketing KPIs</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://web-production-cda1.up.railway.app/" class="demo-link">Live Demo</a>
+                        <a href="https://github.com/JPcasado88/DataVis" class="github-link">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- eBay Order Processor -->
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-type">Business Automation</span>
+                    <h3>eBay Order Processor - €3M GMV</h3>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">
+                        Production system processing €3M+ annual GMV with complex API integration, 19-case SKU matching 
+                        algorithm, and complete order-to-delivery tracking workflow.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech">Python</span>
+                        <span class="tech">Flask</span>
+                        <span class="tech">eBay API</span>
+                        <span class="tech">Pandas</span>
+                        <span class="tech">OAuth2</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://web-production-67ad0.up.railway.app/" class="demo-link">Live Demo</a>
+                        <a href="https://github.com/JPcasado88" class="github-link">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shopify Order Processor -->
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-type">E-commerce Tool</span>
+                    <h3>Shopify Order Processor</h3>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">
+                        Interactive demo showcasing order processing pipeline with real-time progress tracking, 
+                        CSV exports, and comprehensive error handling.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech">React</span>
+                        <span class="tech">TypeScript</span>
+                        <span class="tech">Shopify API</span>
+                        <span class="tech">CSV Processing</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://shopify-demo-production-213f.up.railway.app/" class="demo-link">Try Demo</a>
+                        <a href="https://github.com/JPcasado88" class="github-link">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Production Dashboard -->
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-type">Data Visualization</span>
+                    <h3>Production Analytics Dashboard</h3>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">
+                        Real-time manufacturing analytics with interactive charts, Excel integration, 
+                        and multi-dimensional data analysis for production optimization.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech">React</span>
+                        <span class="tech">Recharts</span>
+                        <span class="tech">Vite</span>
+                        <span class="tech">TailwindCSS</span>
+                        <span class="tech">Excel Processing</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://proddashboard-production-c745.up.railway.app/" class="demo-link">Live Demo</a>
+                        <a href="https://github.com/JPcasado88/production-dashboard-refactored" class="github-link">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Employee Time Clock System -->
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-type">Full-Stack SaaS</span>
+                    <h3>Employee Time Clock System</h3>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">
+                        Modern time tracking SaaS with QR code clock-in, real-time dashboards, 
+                        role-based access control, and comprehensive reporting features.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech">Next.js 14</span>
+                        <span class="tech">TypeScript</span>
+                        <span class="tech">Express</span>
+                        <span class="tech">MongoDB</span>
+                        <span class="tech">Redis</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://timeclock-production-1c5b.up.railway.app/" class="demo-link">Live Demo</a>
+                        <a href="https://github.com/JPcasado88" class="github-link">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dental RAG Chatbot -->
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-type">AI/ML Application</span>
+                    <h3>Dental Care AI Assistant</h3>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">
+                        RAG-based chatbot using OpenAI embeddings for semantic search and GPT-4 for 
+                        generating accurate dental care responses with source citations.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech">Python</span>
+                        <span class="tech">Streamlit</span>
+                        <span class="tech">OpenAI</span>
+                        <span class="tech">RAG</span>
+                        <span class="tech">Embeddings</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://dental-chatbot-production-a44c.up.railway.app/" class="demo-link">Try Chatbot</a>
+                        <a href="https://github.com/JPcasado88" class="github-link">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="about-content">
+            <h2>Marketing Engineer Profile</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                I build revenue-generating systems at the intersection of marketing and technology. 
+                Not a traditional developer, but a business-focused engineer who codes.
+            </p>
+            
+            <div class="about-grid">
+                <div class="about-item">
+                    <h3>📊 Revenue Impact</h3>
+                    <p>€3M+ GMV automated with custom Python systems. I focus on ROI, not just code quality.</p>
+                </div>
+                <div class="about-item">
+                    <h3>🚀 Marketing Automation</h3>
+                    <p>From eBay/Shopify integrations to GA4 implementations. 10,000+ orders processed monthly.</p>
+                </div>
+                <div class="about-item">
+                    <h3>💡 Business First</h3>
+                    <p>I speak both marketing KPIs and Python. Reduced operational costs by 50% for clients.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Let's Build Revenue Systems</h2>
+        <p style="font-size: 1.2rem; color: #666;">
+            Looking for Marketing Engineer, Growth Engineer, or Marketing Technologist roles. 
+            I build systems that generate revenue, not just clean code.
+        </p>
+        <div class="contact-links">
+            <a href="mailto:jpcasadob@gmail.com" class="contact-link">
+                📧 Email Me
+            </a>
+            <a href="https://github.com/JPcasado88" class="contact-link">
+                💻 GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/juan-pablo-casado-bissone-478bb0135/" class="contact-link">
+                💼 LinkedIn
+            </a>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all project cards
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease-out';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
